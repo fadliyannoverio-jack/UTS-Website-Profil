@@ -1,0 +1,646 @@
+/* Import Font dari Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&display=swap');
+
+
+
+/* Variabel Warna (Tema Lamborghini) */
+
+:root {
+
+    --lamborghini-yellow: #FFD700;
+
+    --dark-bg: #121212;
+
+    --light-bg: #1E1E1E;
+
+    --text-primary: #FFFFFF;
+
+    --text-secondary: #AAAAAA;
+
+    --border-color: #333333;
+
+    --yellow-glow: 0 0 15px rgba(255, 215, 0, 0.5); /* Efek glow */
+
+}
+
+
+
+/* Reset dan Pengaturan Dasar */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+
+body {
+
+    font-family: 'Exo_2', sans-serif;
+
+    background-color: var(--dark-bg);
+
+    color: var(--text-primary);
+
+    line-height: 1.6;
+
+    background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.95)), url('https://www.transparenttextures.com/patterns/carbon-fibre-v2.png');
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 100vh;
+
+}
+
+
+
+.content-wrapper {
+
+    flex: 1; /* Mendorong footer ke bawah */
+
+}
+
+
+
+/* --- STYLING KOMPONEN UTAMA --- */
+
+header {
+
+    position: relative;
+
+    height: 45vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    overflow: hidden;
+
+    border-bottom: 4px solid var(--lamborghini-yellow);
+
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+
+}
+
+
+
+.header-video {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 100vw;
+
+    height: 56.25vw;
+
+    min-height: 100%;
+
+    min-width: 177.77vh;
+
+    z-index: 1;
+
+}
+
+
+
+.header-overlay {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    z-index: 2;
+
+}
+
+
+
+.header-content {
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+
+
+header .logo {
+
+    font-size: 3.5rem;
+
+    font-weight: 900;
+
+    color: var(--lamborghini-yellow);
+
+    letter-spacing: 3px;
+
+    text-shadow: var(--yellow-glow);
+
+}
+
+
+
+/* INI BAGIAN YANG DITAMBAHKAN */
+
+.header-profile-info {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 25px;
+
+    z-index: 4; /* Pastikan posisinya di atas overlay */
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px; /* Jarak antara ikon dan teks */
+
+}
+
+
+
+.profile-header-icon {
+
+    width: 100px;
+
+    height: 100px;
+
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa distorsi */
+
+    border: 2px solid var(--lamborghini-yellow); /* Ganti warna border agar sesuai tema */
+
+    border-radius: 50%; /* Membuat gambar menjadi bulat sempurna */
+
+    /* Padding dan background-color tidak diperlukan lagi untuk gambar */
+
+}
+
+
+
+.profile-header-text {
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    color: var(--text-primary);
+
+    text-shadow: 0 0 5px black; /* Bayangan agar teks lebih terbaca */
+
+}
+
+/* AKHIR DARI BAGIAN YANG DITAMBAHKAN */
+
+
+
+nav {
+
+    background-color: var(--light-bg);
+
+    padding: 1rem;
+
+}
+
+
+
+nav ul {
+
+    list-style: none;
+
+    display: flex;
+
+    justify-content: space-around;
+
+}
+
+
+
+nav a {
+
+    color: var(--text-primary);
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    padding: 0.5rem 1rem;
+
+    transition: all 0.3s ease;
+
+    border-bottom: 3px solid transparent;
+
+    position: relative;
+
+}
+
+
+
+nav a::after {
+
+    content: '';
+
+    position: absolute;
+
+    width: 0;
+
+    height: 3px;
+
+    bottom: -3px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background-color: var(--lamborghini-yellow);
+
+    transition: width 0.3s ease;
+
+}
+
+
+
+nav a:hover::after, nav a.active::after {
+
+    width: 100%;
+
+}
+
+
+
+nav a:hover, nav a.active {
+
+    color: var(--lamborghini-yellow);
+
+}
+
+
+
+section {
+
+    padding: 2rem;
+
+}
+
+
+
+.content-page {
+
+    display: none;
+
+    animation: fadeIn 0.6s ease-in-out;
+
+}
+
+
+
+.content-page.active {
+
+    display: block;
+
+}
+
+
+
+.content-page h2 {
+
+    font-size: 2.5rem;
+
+    font-weight: 900;
+
+    color: var(--lamborghini-yellow);
+
+    margin-bottom: 1.5rem;
+
+    text-shadow: var(--yellow-glow);
+
+}
+
+
+
+aside {
+
+    padding: 2rem;
+
+    background-color: var(--light-bg);
+
+}
+
+
+
+.profile-picture {
+
+    width: 180px;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid var(--lamborghini-yellow);
+
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+
+    display: block;
+
+    margin: 0 auto 2rem auto;
+
+}
+
+
+
+.aside-card {
+    /* Membuat latar belakang menyatu dengan sidebar */
+    background-color: transparent; 
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    /* Menghilangkan border agar tidak ada 'kotak' sama sekali */
+    border: none;
+    border-radius: 8px; 
+    /* Transisi sekarang hanya untuk efek glow */
+    transition: box-shadow 0.3s ease;
+}
+
+.aside-card:hover {
+    /* Efek glow tetap ada saat di-hover, tanpa border */
+    box-shadow: var(--yellow-glow);
+}
+
+
+
+.aside-card h3 {
+
+    margin-bottom: 1rem;
+
+    color: var(--lamborghini-yellow);
+
+    border-bottom: 1px solid var(--border-color);
+
+    padding-bottom: 0.5rem;
+
+}
+
+
+
+footer {
+
+    padding: 2rem;
+
+    background-color: #0A0A0A;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    border-top: 1px solid var(--border-color);
+
+
+
+    /* Properti Flexbox untuk layout */
+
+    display: flex;
+
+    justify-content: space-between; /* Mendorong item ke tepi dan tengah */
+
+    align-items: center; /* Menyejajarkan item secara vertikal */
+
+    flex-wrap: wrap; /* Izinkan item untuk turun baris jika layar sempit */
+
+    gap: 2rem; /* Memberi jarak jika item turun baris */
+
+}
+
+
+
+@keyframes fadeIn {
+
+    from { opacity: 0; transform: translateY(20px); }
+
+    to { opacity: 1; transform: translateY(0); }
+
+}
+
+
+
+/* --- PENYESUAIAN LAYOUT RESPONSIVE SESUAI SOAL --- */
+
+/* --- PENYESUAIAN LAYOUT RESPONSIVE --- */
+.main-container {
+    display: grid;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 1. Layout untuk Smart Phone (Default, lebar < 600px) */
+.main-container {
+    grid-template-columns: 1fr; /* 1 kolom penuh */
+    grid-template-areas:
+        "nav"
+        "section"
+        "aside";
+}
+nav { grid-area: nav; border-bottom: 1px solid var(--border-color); }
+section { grid-area: section; }
+aside { grid-area: aside; border-left: none; } /* Pastikan tdk ada border kiri */
+
+nav ul {
+    flex-direction: column; /* Menu NAV vertikal */
+}
+nav li {
+    padding: 0.5rem 0;
+}
+
+/* 2. Layout untuk Tablet Portrait (lebar > 600px) */
+@media (min-width: 600px) {
+    nav ul {
+        flex-direction: row; /* Menu NAV menjadi horizontal */
+    }
+}
+
+/* 3. Layout untuk Tablet Landscape (lebar > 900px) - SESUAI KETENTUAN UTS */
+@media (min-width: 900px) {
+    .main-container {
+        /* NAV 25% di kiri, SECTION 75% di kanan */
+        grid-template-columns: 25% 1fr; 
+        grid-template-areas:
+            "nav section"
+            "aside aside"; /* ASIDE 100% di bawah */
+    }
+    
+    nav ul {
+        flex-direction: column; /* Menu NAV kembali menjadi vertikal */
+    }
+
+    nav {
+        border-right: 1px solid var(--border-color);
+        border-bottom: none; /* Hapus border bawah dari versi mobile */
+    }
+    
+    aside {
+        border-left: none; /* Pastikan tidak ada border kiri di layout ini */
+    }
+}
+
+/* 4. Layout untuk Desktop (lebar > 1200px) */
+@media (min-width: 1200px) {
+    .main-container {
+        max-width: 1600px;
+        /* NAV 25%, SECTION 50%, ASIDE 25% */
+        grid-template-columns: 25% 1fr 25%;
+        grid-template-areas:
+            "nav section aside"; /* ASIDE pindah ke samping kanan */
+    }
+
+    aside {
+        border-left: 1px solid var(--border-color); /* Munculkan border kiri untuk desktop */
+    }
+}
+
+/* --- STYLING FOOTER BARU --- */
+
+
+
+.footer-social h4, .footer-slogan h4 {
+
+    color: var(--text-primary);
+
+    font-weight: 700;
+
+    margin-bottom: 0.5rem;
+
+}
+
+
+
+.social-links a {
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
+    margin-right: 15px; /* Jarak antar link sosial media */
+
+    transition: color 0.3s ease;
+
+}
+
+
+
+.social-links a:hover {
+
+    color: var(--lamborghini-yellow);
+
+}
+
+
+
+.footer-copyright {
+
+    text-align: center;
+
+}
+
+
+
+.footer-slogan {
+
+    text-align: right; /* Teks rata kanan */
+
+}
+
+
+
+/* Membuat footer responsif di layar kecil */
+
+@media (max-width: 768px) {
+
+    footer {
+
+        flex-direction: column; /* Susun item secara vertikal */
+
+        justify-content: center; /* Pusatkan semua item */
+
+        text-align: center; /* Semua teks rata tengah */
+
+    }
+
+
+
+    .footer-slogan, .footer-social {
+
+        text-align: center; /* Pastikan semua rata tengah juga */
+
+    }
+
+}
+
+
+
+/* --- STYLING UNTUK LINK DI DALAM KONTEN --- */
+
+
+
+.content-body a, .content-body a:visited {
+
+    color: #87CEEB; /* Warna biru langit yang cerah (Sky Blue) */
+
+    text-decoration: none; /* Hapus garis bawah default */
+
+    border-bottom: 1px dotted #87CEEB; /* Ganti dengan garis bawah putus-putus */
+
+    font-weight: bold; /* Membuat teks sedikit lebih tebal */
+
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+
+}
+
+
+
+/* Warna saat kursor mouse di atas link */
+
+.content-body a:hover {
+
+    color: var(--lamborghini-yellow); /* Gunakan warna kuning tema saat hover */
+
+    border-bottom-color: var(--lamborghini-yellow); /* Garis bawah juga ikut berubah */
+
+}
